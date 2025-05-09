@@ -1,0 +1,1 @@
+web: gunicorn indawurestaurant.wsgi
