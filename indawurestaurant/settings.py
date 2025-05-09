@@ -43,10 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cloudinary_storage',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'cloudinary',
     'booking',
 ]
 
@@ -100,6 +102,9 @@ DATABASES = {
     'default': dj_database_url.parse("postgresql://neondb_owner:npg_rN1uc2sCJzKZ@ep-jolly-mode-a2qtawlc.eu-central-1.aws.neon.tech/bony_folic_sheep_565761")
 }
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://8000-smbiko-indawu-jyory0bt9w4.ws-eu118.gitpod.io", 'http://*.herokuapp.com'
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+
 BOOKING_STATUS = ((0, 'requested'), (1, 'Confirmed'), (2, 'Declined'))
 
 
