@@ -1,0 +1,387 @@
+/* Google Fonts */
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Oswald:wght@300&display=swap');
+
+/* General */
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+h1,
+h2 {
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3,
+body,
+.nav-item {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-weight: 300;
+}
+
+body {
+    background: url("https://res.cloudinary.com/dkcc61vm0/image/upload/v1713865689/main-background3_b6mljq.jpg");
+    background-color: #b8794f;
+    background-size: cover;
+    min-height: 110vh;
+}
+
+/* Navbar */
+.navbar-brand h1 {
+    font-size: 2.5em;
+}
+
+.navbar-brand h1 i {
+    font-size: 0.95em;
+    padding-left: 0.2em;
+}
+
+.navbar-text {
+    color: black;
+    margin-top: -0.25em;
+    margin-left: 1em;
+}
+
+.nav-item {
+    padding-right: 1.25em;
+}
+
+.nav-link {
+    color: ghostwhite;
+    text-transform: uppercase;
+}
+
+.nav-link:hover{
+    color: #916b56;
+}
+
+.btn-light,
+.btn-dark {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.btn-light {
+    color: white;
+    background-color: whitesmoke;
+}
+
+.btn-light:hover,
+.btn-dark:hover {
+    color: ghostwhite;
+    background-color: brown;
+    border-color: brown;
+}
+
+.navbar-toggler {
+    margin-top: -0.5em;
+    margin-right: 0.5em;
+    border: 2px solid;
+}
+
+/* Submit buttons */
+.submit-button {
+    background-color: brown;
+    border-radius: 5px;
+    color: white;
+    margin-top: 10px;
+}
+
+/* Links */
+.link {
+    color: #916b56;
+    text-decoration: none;
+}
+
+/* Home Page */
+#index-splash {
+    margin-top: 1.5em;
+}
+
+#splash-image {
+    object-fit: cover;
+    height: 100%;
+}
+
+.top-banner h2 {
+    font-size: 1.5em;
+}
+
+.opening-times {
+    background-color: rgb(79, 47, 47);
+    padding: 1.5em 0;
+}
+
+.opening-times h3 {
+    font-size: 1.25em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.opening-times p {
+    margin-bottom: 0.4em;
+}
+
+.bottom-banner a:hover {
+    background-color: dimgrey;
+}
+
+/*  Customer-Booking Form */
+#customer-booking {
+    margin-top: 1.3em;
+}
+
+#customer-booking input {
+    border: 2px solid #A37A74;
+    border-radius: 4px;
+}
+
+/* Forms */
+.center-form {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#edit-user-form input {
+    border: 2px solid #A37A74;
+    border-radius: 4px;
+}
+
+#edit-booking-form input {
+    border: 2px solid #A37A74;
+    border-radius: 4px;
+}
+
+#signup-form input {
+    border: 2px solid #A37A74;
+    border-radius: 4px;
+}
+
+#signin-form input {
+    border: 2px solid #A37A74;
+    border-radius: 4px;
+}
+
+/* datepicker */
+.highlighted-date a {
+    color: red !important;
+}
+
+.highlighted-date {
+    pointer-events: none;
+}
+
+/* Profile page */
+.profile {
+    margin-top: 30px;
+}
+
+.welcome {
+    border: 5px solid #7180AC;
+}
+
+.bookings {
+    margin-top: 30px;
+    border: 5px solid #A37A74;
+    height: 350px;
+    overflow-y: scroll;
+}
+
+.bookings tr {
+    border-bottom: 1px solid #ddd;
+}
+
+.no-booking {
+    margin-top: 30px;
+    font-size: 150%;
+}
+
+#booking-table {
+    width: 100%;
+}
+
+td > a {
+    text-decoration: none;
+}
+
+#edit-account {
+    text-decoration: none;
+}
+
+
+/* Access & Authorisation Forms */
+.access-form {
+    background-color: ghostwhite;
+    border: 0.5em solid gainsboro;
+    margin-top: 2em;
+}
+
+.access-form a {
+    color: darkslategrey;
+    font-weight: bold;
+}
+
+.access-form a:hover {
+    color: ghostwhite;
+    background-color: dimgrey;
+    text-decoration: none;
+}
+
+.access-form button,
+.access-form-input {
+    color: ghostwhite;
+    background-color: dimgrey;
+}
+
+.access-form-smalltxt {
+    font-size: 0.9em;
+}
+
+#id_login,
+#id_password,
+#id_username,
+#id_email,
+#id_password1,
+#id_password2 {
+    width: 50%
+}
+
+#sign-out {
+    margin-top: -1.5rem;
+}
+
+/* Booking Forms & Tables */
+.booking-form,
+.bg-table {
+    background-color: rgb(30, 40, 40);
+}
+
+.booking-form {
+    color: ghostwhite;
+    border: 0.5em solid #A37A74;
+    margin-top: 0.2rem;
+}
+
+/* Footer */
+footer div {
+    color: ghostwhite;
+    background-color: rgb(79, 47, 47);
+}
+
+footer h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    margin-right: 1em;
+}
+
+footer h3 {
+    font-size: 1em;
+    font-weight: bold;
+    margin-top: 0.8em;
+    margin-bottom: 0.1em;
+}
+
+footer h3,
+footer p {
+    margin-left: 0.5em;
+}
+
+footer p {
+    font-size: 0.9em;
+}
+
+.footer-icon {
+    background-color: whitesmoke;
+    width: 3.5em;
+    height: 3.5em;
+}
+
+.footer-icon a i {
+    color: darkslategrey;
+    font-size: 2.2em;
+}
+
+.footer-icon:hover {
+    border: 2px solid darkslategrey;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 767px) {
+    .nav-item {
+        padding-right: 0.5em;
+    }
+    
+    #text-column {
+        border-left: solid
+    }
+
+    .booking-entry {
+        border-top: solid 2px dimgrey;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    footer h2 {
+        font-size: 1.75em;
+        text-align: right;
+    }
+}
+
+@media only screen and (max-width: 355px) { 
+    h2 {
+        font-size: 1.75em;
+    }
+    
+    p {
+        font-size: 0.9em;
+    }
+    
+    .navbar-brand {
+        font-size: 0.85em;
+    }
+    
+    .footer-icon {
+        background-color: darkslategrey;
+    }
+
+    .footer-icon a i {
+        color: whitesmoke;
+    }
+}
+
+@media only screen and (max-height: 825px) {
+    .navbar-brand {
+        font-size: 0.85em;
+    }
+
+    body,
+    #index-splash {
+        margin-bottom: 5em;        
+    }
+
+    footer h2 {
+        font-size: 1.5em;
+        margin-right: 0.75em;
+    }
+
+    .footer-hours {
+        display: none;
+    }
+
+    .footer-icon {
+        width: 3em;
+        height: 3em;
+    }
+
+    .footer-icon a i {
+        font-size: 1.75em;
+    }
+}
