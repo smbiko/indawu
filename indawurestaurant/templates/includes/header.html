@@ -1,0 +1,37 @@
+{% load static %}
+
+<header>
+    {% with request.resolver_match.url_name as url_name %}
+<nav class="navbar bg-dark border-bottom sticky-top navbar-expand-md" data-bs-theme="dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'home' %}">
+            <h1><i class="fa-thin fa-user-chef"></i> Indawu Lounge</h1>
+        </a>
+        <button class="navbar-toggler p-1 p-sm-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end text-end" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}" aria-label="Navigates to the home page">Home</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}" aria-label="Navigates to the home page">Contact</a> 
+                </li>
+                
+                <li class="nav-item d-md-none bg-light-subtle rounded">
+                    <a class="nav-link" href="{% url 'account_login' %}" aria-label="Navigates to the home page">Bookings</a>
+               </li>
+
+               <li class="nav-item d-md-none bg-light-subtle rounded">
+                   <a class="nav-link" href="{% url 'account_login' %}" aria-label="Navigates to the home page">Bookings</a>     
+               </li>
+
+            </ul>
+         </div>
+     </div>
+  </nav>
+    {% endwith %}
+ </header>
