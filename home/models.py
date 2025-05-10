@@ -1,19 +1,18 @@
 from django.db import models
-from django.utils import timezone
+from django.contrib.auth.models import User 
 
-
+# Create your models here.
 class Contact(models.Model):
-    """
-    Contact Form model for posting to the admin panel
-    """
-    email = models.EmailField(blank=False)
-    name = models.CharField(max_length=50, blank=False)
-    message = models.TextField(blank=False)
-    date_posted = models.DateField(default=timezone.now)
-
-    class Meta:
-        verbose_name = "Contact Form Submission"
-
+    name = models.CharField(max_length=250)
+    email = models.EmailField()
+    subject = models.CharField(max_length=250)
+    message = models.TextField()
+    added_on = models.DateTimeField(auto_now_add=True)
+    is_approved = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"{self.name}, {self.email}"    
+        return self.name
+
+    class Meta:
+        verbose_name_plural = "Contact Table"
+

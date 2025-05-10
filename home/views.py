@@ -1,22 +1,21 @@
 from django.shortcuts import render, reverse
-from django.http import HttpResponseRedirect
-from django.contrib import messages
-from .forms import ContactForm
-from home import views
-
-
-
-urlpatterns = [
-    #path('admin/', admin.site.urls),
-    #path('', include('home.urls')),
-    #path('', views.index, name="index"),
-    #path('bookings/', include('booking.urls')),
-]
+from django.shortcuts import render, get_object_or_404, reverse
+from home.models import Contact
+from django.http import HttpResponse,JsonResponse, HttpResponseRedirect
+from django.contrib.auth.models import User
+from django.contrib.auth import login, authenticate, logout
+from django.conf import settings
 
 def index(request):
-    """
-    Home Page
-    """
-    return render(request, "index.html")
+    return render(request,'index.html')
+
+def home(request):
+    return render(request, 'index.html')
+
+def contact_us(request):
+    return render(request,'contact.html')
+
+def about(request):
+    return render(request,'about.html')
 
 
