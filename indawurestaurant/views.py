@@ -9,5 +9,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name="index"),
+    path('contact/',views.contact_us,name="contact"),
+    path('about/',views.about,name="about"),
 ]
 
