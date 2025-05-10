@@ -4,10 +4,14 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Booking, Customer
 from .forms import CustomerForm, BookingForm, UserForm
+from django.http import HttpResponse
 
 
 
+def booking_list(request):
+    return HttpResponse("This is the booking list page.")
 
+    
 def limit_no_persons(date, time, accompanying):
 
     persons_limit = False

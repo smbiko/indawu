@@ -2,29 +2,21 @@ from django.shortcuts import render, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from .forms import ContactForm
+from home import views
 
 
-def home(request):
+
+urlpatterns = [
+    #path('admin/', admin.site.urls),
+    #path('', include('home.urls')),
+    #path('', views.index, name="index"),
+    #path('bookings/', include('booking.urls')),
+]
+
+def index(request):
     """
     Home Page
     """
-    return render(request, "home/index.html")
+    return render(request, "index.html")
 
 
-def contact(request):
-    """
-    Contact Page and Form
-    """
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("thank-you"))
-        else:
-            messages.error(
-                request,
-                "Failed to send message. Please try again. All fields are required.",    
-            )
-    form = ContactForm()
-    context = {"form": form}
-    return render(request, "contact.html", context)        
