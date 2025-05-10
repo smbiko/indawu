@@ -8,7 +8,7 @@ def home(request):
     """
     Home Page
     """
-    return render(request, "index.html")
+    return render(request, "home/index.html")
 
 
 def contact(request):
