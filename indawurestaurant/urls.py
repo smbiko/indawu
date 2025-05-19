@@ -8,10 +8,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name="index"),
     path('', views.home, name='home'),
-    path('contact/',views.contact_us,name="contact"),
+    path('contact/',views.contact,name="contact"),
     path('about/',views.about,name="about"),
     path('menu/', views.menu, name='menu'),
-    
+    path('bookings/', include('booking.urls'), name='booking_urls'),
 
     
 ]

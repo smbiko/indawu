@@ -1,47 +1,11 @@
-from django.shortcuts import render, reverse
-from django.shortcuts import render, get_object_or_404, reverse
-from home.models import Contact
-from django.http import HttpResponse,JsonResponse, HttpResponseRedirect
-from django.contrib.auth.models import User
-from django.contrib.auth import login, authenticate, logout
-from django.conf import settings
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Sum
 from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Customer
 from booking.models import Booking
 from .forms import CustomerForm, BookingForm, UserForm
-from .forms import ContactForm
 
-def index(request):
-    return render(request,'index.html')
-
-def home(request):
-    return render(request, 'index.html')
-
-def contact(request):
-    """
-    Contact Page and Form
-    """
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("thank-you"))
-        else:
-            messages.error(
-                request,
-                "Failed to send message. Please try again. All fields are required.",    
-            )
-    form = ContactForm()
-    context = {"form": form}
-    return render(request, "contact.html", context)  
-
-def about(request):
-    return render(request,'about.html')
-
-def menu(request):
-    return render(request, 'menu.html') 
 
 def limit_no_persons(date, time, accompanying):
 
@@ -226,5 +190,3 @@ def delete_user(request, user_id):
     messages.add_message(request, messages.WARNING,
                          'Your account has been deleted!')
     return redirect('home')
-
-

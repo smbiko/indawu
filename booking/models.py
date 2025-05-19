@@ -1,27 +1,7 @@
 from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import User 
-
+from django.contrib.auth.models import User
 
 BOOKING_STATUS = ((0, 'requested'), (1, 'Confirmed'), (2, 'Declined'))
-
-
-class Contact(models.Model):
-    """
-    Contact Form model for posting to the admin panel
-    """
-    email = models.EmailField(blank=False)
-    name = models.CharField(max_length=50, blank=False)
-    message = models.TextField(blank=False)
-    date_posted = models.DateField(default=timezone.now)
-
-    class Meta:
-        verbose_name = "Contact Form Submission"
-
-
-    def __str__(self):
-        return f"{self.name}, {self.email}"    
-
 
 
 class Customer(models.Model):
@@ -29,7 +9,7 @@ class Customer(models.Model):
     full_name = models.CharField(max_length=200, blank=True)
     email = models.EmailField(max_length=200, blank=True)
     phone_number = models.CharField(max_length=20)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='home_customers')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='booking_customers')
 
 
     def __str__(self):
@@ -48,3 +28,5 @@ class Booking(models.Model):
 
     def __str__(self):
         return f"Booking by {self.customer}"
+
+        
