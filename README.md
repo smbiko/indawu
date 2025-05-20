@@ -1,131 +1,302 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+#  Indawu-Restaurant
+Indawu-Restaurant is an imaginary Restaurant based in Dublin Ireland created for the Purpose of creating a full functioning Booking app for the school project tollkit Full-Stuck Django milestone Project.
 
-Welcome Siyasanga Mbiko,
+This website displays information to the user such as opening times, Users are able to create an account on this website.Once a user is logged in they are able to make a request for a booking also able to edit or delete their booking by visiting their profile page. An authorized user can also edit the personal profile. The site also have the access for  managers to oversee the bookings of all users so that they can properly run the restaurant.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+A live version of the project can be accessed [here:](https://dashboard.heroku.com/apps/brk2restaurant-2024/deploy/github)
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+![Overview](static/images/readme/booking-site.png)
 
-## Gitpod Reminders
+ 
+## User Experiance Design
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## User Demographic
 
-`python3 -m http.server`
+This Site Targes Users who are:
 
-A blue button should appear to click: _Make Public_,
+* Looking for an African fusion food taste
+* Forigners who live in Dublin and miss their Original Tasete of Food
+* Tourists from all over the world who are looking for an international experiance
 
-Another blue button should appear to click: _Open Browser_.
+## User Stories
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+* As a User of this website I want to see a home page which give me a general information
+* As a user of this website I want to create an account so that i can have the access
+* As a User of This website I want to  have an access to book or reserve for my comming dates
+* As a User I want to see a conformation message so that my booking is accepted for further conformation
+* As a User of This website i want to Edit, and delete my booking Schedule
+* As a User of this Website I want to edit or delete my usser Profile Information
+* As an Admin Of the website i want to access all Bookings and arrange for further management
 
-A blue button should appear to click: _Make Public_,
+## Skeleton
 
-Another blue button should appear to click: _Open Browser_.
+## Wireframe
+Wireframe are used to give a visual feedback afer taking the general structure of the site and they also help as a remnder for the basic components of the site
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+Home
 
-To log into the Heroku toolbelt CLI:
+![Home page wireframe](static/images/readme/wireframe-home.png)
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+Booking
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+![Booking page wireframe](static/images/readme/wireframe-booking.png)
 
-### Connecting your Mongo database
+### Flowchart
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+This flowchart was created to determine the flow of the website. It shows which pages are available to the user. It takes into account if the user is logged in to the website or not.
 
-------
+![website-flowchart](static/images/readme/website-flowchart.png)
 
-## Release History
+## Technologies used
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+* *Django* - The Django framework was used to develop this application.
+* *Django AllAuth* - Used to create account, login and logout users of the site.
+* *Python* - This application was developed using Python.
+* *ElephantSQL* - was used to host the external database.
+* *HTML* - was used to develop the templates in this project.
+* *CSS* - was used to style the page by customizing it.
+* *Lucid chart* - Used to create the flowchart.
+* *Bootstrap* - was used for the fast development of the layout and styling
+* *Gitpod* - IDE used for the development of the  application.
+* *jQuery* - jQuery was used to develop the date and time pickers.
+* *GitHub* - The code for this application is stored on GitHub.
+* *Git* - Used for version control.
+* *Heroku* - Used for development.
+* *JavaScript* -
 
-**June 18, 2024,** Add Mongo back into template
+## Features
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+## Existing features
 
-**May 28 2024:** Fix Mongo and Links installs
+### Navigation bar
 
-**April 26 2024:** Update node version to 16
+![navbar](static/images/readme/nav-link.png)
 
-**September 20 2023:** Update Python version to 3.9.17.
+* Links alter depending on which section of the site the user is accessing.
+* The navigation bar is seen on all pages of this booking site.
+* Navbar toggler appears at screen sizes of 746px or less to preserve well-formatted layout.
+* To the left hand side of the navigation bar the name and the logo for café-board can be seen. This logo is clickable and will return the user back to the home page.
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Home Page
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+![homepage-link](static/images/readme/homepage-link.png)
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+* A home page also displaying a quick link to the booking area of the site.
+* A home page with a background image displaying opening times of the restaurant.
+* A home page renders well for all screen sice media.
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Contact Us Page
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+![Contact-us](static/images/readme/contactus2-link.png)
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+* The contact us link opens a form for the user to fill out.
+* The user is asked for their name, email and the message they would like to send.
+* The Booking admin adress all the issues rasied by the user as quickly as possible.
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Register Page
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+![register-link](static/images/readme/register-link.png)
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+* This link allows a User to Sign up for the page and 
+* A registerd User has all the access for booking and additional previllages
+* A User is expected to fill all the required Fild and a conformation massage will show the Success.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+### Sign-in Page
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+![signin-link](static/images/readme/signin-link.png)
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+* A user can sign in using a registerd credentials 
+* After the user sign in the user can book, visit the profile and able to perform edition and deletion 
+* A signd in User have the following Options
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+![signdin](static/images/readme/signedin-link.png)
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+### Booking Admin
 
-------
+![admin](static/images/readme/admin-conformation.png)
 
-## FAQ about the uptime script
+* An admin area only allowing access to the site admin
+* A link to the database to clearly display the details of each booking
+* Username and password details must be entered to gain access and able to manage booking
 
-**Why have you added this script?**
+![admin](static/images/readme/admin-booking-management.png)
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+## Future features
 
-**How will this affect me?**
+1. Adding a menu and gallary page
+2. Adding More interaction by implementing jS functionality
+3. Improving the booking steps by adding Pictures of the setting arrangement
+4. Automatic email notifications for admin when customers make bookings and notifications to customers when booking status is updated
+5. A forgotten password link
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+## Testing
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+### Manual testing
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+Each section of the website has been tested.Testing different devices and screen resolutions has been conducted using Google DevTools.
 
-**So….?**
+#### Navigation Bar
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Logo|Clicked logo|When the logo is clicked it will return the user to the home page|pass
+Home nav link|Clicked Home on the nav bar|When clicked it will direct the user to the home page|pass
+Contact-Us nav link|Clicked Contact-Us on the nav bar|When clicked it will direct the user to the Contact-us|Pass
+Register nav link|Clicked Register on the nav bar|When clicked it will direct the user to the sign up page|Pass
+Sign in nav link|Clicked Sign in on the nav bar|When clicked it will direct the user to the sign in page|Pass
+Nav menu responsive|Change the Device Size|When browser is resized the nav bar will remain responsive across all device sizes|Pass
 
-**Can I opt out?**
+#### Contact Us
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Contact us form|Filled out form and clicked submit|Once successfully filled out and submitted by the submit button then conformation message will popup|Pass
+Contact us form validation|Tried to submit form with empty name input|If the form is submitted with a required field empty a pop up will detail this to the user|Pass
+Contact us page responsive|Change the Device Size|When the screen size is changed the contact us page will adapt to the different screen size|Pass
 
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+#### Register
 
-**Anything more?**
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Sign in link|Clicked sign in link|If the user clicks the sign in link they are redirected to the sign in page|Pass
+Register form|Filled out all required fields of register form and clicked sign up|When sign up button is clicked it will create an account for the user and sign them into the site|Pass
+Register - success message|Created an account on the register page and observed the success message|When user creates an account they are signed-in a success message is displayed|Pass
+Register form validation|Clicked sign up and left the required field blank|If sign up is clicked without a required input field being filled a pop up will detail this to the user|Pass
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+#### Sign In
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Sign in form|Fill out all required fields of sign in form and clicked sign in|Once the sign in form is filled out correctly and sign in button is clicked it will sign them into the site|Pass
+Sign in - success message|Signed in and observed the success message|When user signs in they are redirected to café-board home page and a success message is displayed|Pass
+Sign in page responsive|Resized browser and checked the sign in page at different screen resolutions|When the screen size is changed the sign in page will adapt to the different screen size|Pass
 
----
+#### Booking
 
-Happy coding!
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Booking form|Fill in booking form and clicked submit|Once the booking form is filled out correctly and submit button is clicked it will direct the user to their profile page|Pass
+Booking form validation|Submitting booking form with required field blank|If any of the required fields are left empty a pop up will detail that these fields are required for submission of the form|Pass
+Booking - success message|Submitted booking form an observed success message|Submitted booking form an observed success message|Pass
+Booking page responsive|Resized browser and checked the booking page at different screen resolutions|When the screen size is changed the booking page will adapt to the different screen size|Pass
+
+#### Logout
+
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Logout|Clicked the Logout button|Users can logout of the site by clicking the sign out button, they will be redirected to the logged out home page|Pass
+Logout - warning message|Logged out of the site and observed the message|Once logged out a message will detail this to the user|Pass
+
+#### Profile
+
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Profile information - edit|Profile information - edit|The user can edit their username or email by clicking the edit button and they will be directed to an edit page|Pass
+Edit profile information|Edited username and clicked update user|The user can edit their username or email by filling out the form on the edit user page and clicking update user|Pass
+Delete profile|Clicked delete account and clicked delete account again on the modal, tried to sign in using the deleted account details|When the delete account button is clicked a modal will pop up to the user to confirm this action, once delete account is clicked the user will be redirected to the logged out home page with a warning message|Pass
+Delete bookings|Clicked delete on a booking|Once the user clicks delete next to a booking the booking will be removed and a warning message is displayed to the user|Pass
+
+### Footer
+
+**Test**|**Action**|**Expected**|**Result**
+-----|-----|-----|:-----:
+Instagram link clickable|Clicked the Instagram icon|When clicked the Instagram icon will open a new window to Instagram|Pass
+Facebook link clickable|Clicked the Facebook icon|When clicked the Facebook icon will open a new window to Facebook|Pass
+Footer responsive|Resized the browser and checked the footer at different resolutions|Footer will fit the samll screen size|Pass
+
+## Validator Testing
+
+HTML
+
+![html-valid](static/images/readme/contact-final-deployed.png)
+
+CSS
+
+![css-valid](static/images/readme/css-valid.png)
+
+Lighthouse Testing
+
+![LH-valid](static/images/readme/LH-valid.png)
+
+CI Python Linter
+
+admin.py
+
+![admin](static/images/readme/admin-booking-management.png)
+
+forms.py
+
+![forms](static/images/readme/form-booking.png)
+
+model.py
+
+![model](static/images/readme/mod-booking.png)
+
+urls.py
+
+![urls](static/images/readme/url-booking.png)
+
+views.py
+
+![views](static/images/readme/view-booking.png)
+
+### Bugs
+
+**Bug**|**Solution**|**Status**
+-----|-----|:-----:
+Contact Us not validating correctly|fixed by setting the field to required|fixed
+The deployed project on Heroku not displaying the Bootstrap/CSS styling as implemented in the code|Connect style.css by correcting typo of 'STATIC_DIRS' to 'STATICFILES_DIRS' in settings.py|Fixed
+Auto date and time populating is not working on the booking form|using wiedget and jQuery it populates|Fixed
+The background image was not visible on the deployed page|Seeting the images to load from static links rather than external sources|Fixed
+Profile page was not correctely rendered and visible|adding a background color and setting the detail corerctely in a table|fixed
+
+## Deployment
+
+### Deploying on Heroku
+
+1. Create a Heroku account. 
+2. Once logged in, select create a new app.
+3. Select an app name and region.
+4. Select deployment method by onnecting to github.
+5. Find the desired repo.
+6. Choose the manual deploy or Enable automatic deploys and select the main branch
+7. In the settings tab select reveal config vars. Input the required hidden variables.
+8. Deploy
+
+### Fork The Repository
+1. Access the GitHub repository.
+2. Click on Fork button in the upper right-hand corner.
+3. Edit the repository name and description if desired.
+4. Click the green create fork button.
+
+### Clone The Repository
+1. Go to the GitHub repository
+2. Locate the green Code button above the list of files and click it
+3. Select if you prefer to clone using HTTPS, SSH, or Github CLI and click the copy button to copy the URL to your clipboard
+4. Open Git Bash
+5. Change the current working directory to the one where you want the cloned directory
+6. Type git clone and paste the URL from the clipboard
+
+7. Press Enter to create your local clone.
+
+## Credits
+
+### Code
+
+* Credit for Daniel Conner for letting and providing basic booking model and form codes from his project 
+
+* Credit for Code Walkthrough Projects
+
+## Acknowledgements
+
+I would like to thank my mentor and the Code Institute team and the Slack community.
+
+
+
+
+
+
+
+
+
+
+
