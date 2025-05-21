@@ -27,7 +27,7 @@ def contact(request):
         form = ContactForm(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect(reverse("thank-you"))
+            return HttpResponseRedirect(reverse("home"))
         else:
             messages.error(
                 request,
