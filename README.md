@@ -3,7 +3,7 @@ Indawu-Restaurant is an imaginary Restaurant based in Dublin Ireland created for
 
 This website displays information to the user such as opening times, Users are able to create an account on this website.Once a user is logged in they are able to make a request for a booking also able to edit or delete their booking by visiting their profile page. An authorized user can also edit the personal profile. The site also have the access for  managers to oversee the bookings of all users so that they can properly run the restaurant.
 
-A live version of the project can be accessed [here:](https://dashboard.heroku.com/apps/brk2restaurant-2024/deploy/github)
+A live version of the project can be accessed [here:](https://indawu-aba5c792f2e8.herokuapp.com/)
 
 ![Overview](static/images/readme/booking-site.png)
 
