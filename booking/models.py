@@ -1,11 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 
 BOOKING_STATUS = ((0, 'requested'), (1, 'Confirmed'), (2, 'Declined'))
 
 
 class Customer(models.Model):
-    
+    featured_image = CloudinaryField('image', default='placeholder')
     full_name = models.CharField(max_length=200, blank=True)
     email = models.EmailField(max_length=200, blank=True)
     phone_number = models.CharField(max_length=20)
@@ -20,6 +21,7 @@ class Booking(models.Model):
     """
     Model for Booking
     """
+    featured_image = CloudinaryField('image', default='placeholder')
     booking_date = models.DateField()
     booking_time = models.TimeField()
     number_accompanying = models.IntegerField(default=1)

@@ -31,7 +31,7 @@ SECRET_KEY = 'django-insecure-lq^6$ixae8(!28=2k*oa=nlncy14@r-#zyeih*=jxnn*d!j_79
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-smbiko-indawu-jyory0bt9w4.ws-eu118.gitpod.io', '.herokuapp.com']
 
@@ -75,6 +75,7 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -159,11 +160,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_DIR = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS =[os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATICFILES_DIRS =[
-    STATIC_DIR,
-]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

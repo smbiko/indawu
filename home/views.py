@@ -20,22 +20,18 @@ def home(request):
     return render(request, 'index.html')
 
 def contact(request):
-    """
-    Contact Page and Form
-    """
-    if request.method == "POST":
-        form = ContactForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("home"))
-        else:
-            messages.error(
-                request,
-                "Failed to send message. Please try again. All fields are required.",    
-            )
-    form = ContactForm()
-    context = {"form": form}
-    return render(request, "contact.html", context)  
+    context={}
+    if request.method=="POST":
+        name = request.POST.get("name")
+        em = request.POST.get("email")
+        sub = request.POST.get("subject")
+        msz = request.POST.get("message")
+        
+        obj = Contact(name=name, email=em, subject=sub, message=msz)
+        obj.save()
+        context['message']=f"Dear {name}, Thanks for your time!"
+
+    return render(request,'contact.html', context)
 
 def about(request):
     return render(request,'about.html')
