@@ -35,7 +35,7 @@ In this project I wanted to explore a new found skill of using bootstrap wirefra
 
 Home
 
-![Home page wireframe](static/images/readme/Indawu landing page.png)
+![Home page wireframe](static/images/readme/landing-page.png)
 
 Booking
 
@@ -74,7 +74,7 @@ Booking
 
 ### Home Page
 
-![homepage-link](static/images/readme/Indawu landing page.png)
+![homepage-link](static/images/readme/landing-page.png)
 
 * A home page also displaying a quick link to the booking area of the site.
 * A home page with a background image displaying the environment of the restaurant.
