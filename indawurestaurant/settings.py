@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 import dj_database_url
 from django.contrib import messages
 if os.path.isfile('env.py'):
@@ -31,7 +32,7 @@ SECRET_KEY = 'django-insecure-lq^6$ixae8(!28=2k*oa=nlncy14@r-#zyeih*=jxnn*d!j_79
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-smbiko-indawu-jyory0bt9w4.ws-eu119.gitpod.io', '.herokuapp.com']
 
@@ -119,6 +120,9 @@ WSGI_APPLICATION = 'indawurestaurant.wsgi.application'
 DATABASES = {
     'default': dj_database_url.parse("postgresql://neondb_owner:npg_rN1uc2sCJzKZ@ep-jolly-mode-a2qtawlc.eu-central-1.aws.neon.tech/bony_folic_sheep_565761")
 }
+
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 
 CSRF_TRUSTED_ORIGINS = [
     "https://8000-smbiko-indawu-jyory0bt9w4.ws-eu119.gitpod.io", 'http://*.herokuapp.com'
