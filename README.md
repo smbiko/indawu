@@ -31,21 +31,16 @@ This Site Targes Users who are:
 ## Skeleton
 
 ## Wireframe
-Wireframe are used to give a visual feedback afer taking the general structure of the site and they also help as a remnder for the basic components of the site
+In this project I wanted to explore a new found skill of using bootstrap wireframes. Which I found on https://htmlcodex.com/food-website-template/ but I modified to keep it simple and only have the bare nessecceray screens and pages.
 
 Home
 
-![Home page wireframe](static/images/readme/wireframe-home.png)
+![Home page wireframe](static/images/readme/Indawu landing page.png)
 
 Booking
 
-![Booking page wireframe](static/images/readme/wireframe-booking.png)
+![Booking page wireframe](static/images/readme/booking-page.png)
 
-### Flowchart
-
-This flowchart was created to determine the flow of the website. It shows which pages are available to the user. It takes into account if the user is logged in to the website or not.
-
-![website-flowchart](static/images/readme/website-flowchart.png)
 
 ## Technologies used
 
@@ -79,15 +74,15 @@ This flowchart was created to determine the flow of the website. It shows which 
 
 ### Home Page
 
-![homepage-link](static/images/readme/homepage-link.png)
+![homepage-link](static/images/readme/Indawu landing page.png)
 
 * A home page also displaying a quick link to the booking area of the site.
-* A home page with a background image displaying opening times of the restaurant.
-* A home page renders well for all screen sice media.
+* A home page with a background image displaying the environment of the restaurant.
+* A home page renders well for all screen size media.
 
 ### Contact Us Page
 
-![Contact-us](static/images/readme/contactus2-link.png)
+![Contact-us](static/images/readme/contact-us.png)
 
 * The contact us link opens a form for the user to fill out.
 * The user is asked for their name, email and the message they would like to send.
@@ -95,7 +90,8 @@ This flowchart was created to determine the flow of the website. It shows which 
 
 ### Register Page
 
-![register-link](static/images/readme/register-link.png)
+![register-link](static/images/readme/register-page.png)
+)
 
 * This link allows a User to Sign up for the page and 
 * A registerd User has all the access for booking and additional previllages
