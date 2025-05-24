@@ -1,7 +1,7 @@
-
 from django import forms
 from django.forms.widgets import DateInput, TimeInput
 from .models import Customer, Booking, User
+from http import HTTPStatus
 
 class CustomerForm(forms.ModelForm):
     class Meta:
@@ -18,10 +18,9 @@ class BookingForm(forms.ModelForm):
         model = Booking
         fields = ('booking_date', 'booking_time', 'number_accompanying')
         widgets = {
-            'booking_date': DateInput(attrs={'id': 'datepicker',
-                                             'autocomplete': 'off'}),
-            'booking_time': TimeInput(attrs={'id': 'timepicker',
-                                             'autocomplete': 'off'})
+            'booking_date': forms.DateInput(attrs={'class': 'form-control', 'type': 'date', 'placeholder': 'Date'}),
+            'booking_time': forms.TimeInput(attrs={'class': 'form-control', 'type': 'time', 'placeholder': 'Time'}),
+            'number_accompanying': forms.NumberInput(attrs={'class': 'form-control', 'placeholder': 'Number of Guests'}),
         }
 
 

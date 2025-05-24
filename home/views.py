@@ -13,6 +13,7 @@ from booking.models import Booking
 from .forms import CustomerForm, BookingForm, UserForm
 from .forms import ContactForm
 
+
 def index(request):
     return render(request,'index.html')
 
@@ -54,7 +55,6 @@ def limit_no_persons(date, time, accompanying):
         persons_limit = False
     return persons_limit
 
-
 def unavailable_dates():
     """
       the function executes the action when the restaurant is fully booked with confirmed bookings
@@ -67,21 +67,6 @@ def unavailable_dates():
     unavailable_dates = [booking['booking_date']
                          for booking in bookings_max_persons]
     return unavailable_dates
-
-
-def check_availability(date, time):
-    
-    unavailable = Booking.objects.filter(
-        booking_date=date, booking_time=time, booking_status=1)
-    available = True
-    total_persons = unavailable.aggregate(Sum('number_accompanying'))[
-        'number_accompanying__sum']
-    if unavailable.exists() and total_persons >= 10:
-        available = False
-    else:
-        available = True
-    return available
-
 
 def customer_booking(request):
     
@@ -119,10 +104,29 @@ def customer_booking(request):
         'unavailable_dates': unavailable_booking_dates,
     }
 
-    return render(request, 'booking.html', context)
+    return render(request, 'booking/main_booking.html', context)
 
 
-def display_booking(request):
+
+
+def check_availability(date, time):
+    
+    unavailable = Booking.objects.filter(
+        booking_date=date, booking_time=time, booking_status=1)
+    available = True
+    total_persons = unavailable.aggregate(Sum('number_accompanying'))[
+        'number_accompanying__sum']
+    if unavailable.exists() and total_persons >= 10:
+        available = False
+    else:
+        available = True
+    return available
+
+
+
+
+
+def booking_view(request):
     """
     came from: https://www.w3schools.com/django/django_queryset_filter.php
     """
@@ -131,7 +135,7 @@ def display_booking(request):
     context = {
         'bookings': bookings,
     }
-    return render(request, 'profile.html', context)
+    return render(request, 'booking.html', context)
 
 
 def edit_booking(request, booking_id, customer_id):
@@ -210,17 +214,5 @@ def edit_user(request, user_id):
             'form': form,
         }
         return render(request, 'edit_user.html', context)
-
-
-def delete_user(request, user_id):
-    """
-    Delete user will delete a users account. A message is displayed to the user
-    if deletion is successful.
-    """
-    user = get_object_or_404(User, id=user_id)
-    user.delete()
-    messages.add_message(request, messages.WARNING,
-                         'Your account has been deleted!')
-    return redirect('home')
 
 

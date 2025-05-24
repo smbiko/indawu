@@ -1,0 +1,17 @@
+<!-- Edit user form -->
+<section class="container">
+    <div class="row">
+      <div class="col-sm-12 center-form">
+        <h1>Edit User:</h1>
+        <form method="POST" id="edit-user-form">
+          {{ form | crispy }}
+          {% csrf_token %}
+          <div>
+              <button type="submit" class="btn btn-lg submit-button" aria-label="Update user">
+                Update user
+              </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>

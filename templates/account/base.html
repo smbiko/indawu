@@ -1,43 +1,138 @@
-{% load i18n %}
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block head_title %}{% endblock head_title %}</title>
-    {% block extra_head %}
-    {% endblock extra_head %}
-  </head>
-  <body>
-    {% block body %}
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Indawu Resturant - Afro fusion Cuisine </title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    {% if messages %}
-    <div>
-      <strong>{% trans "Messages:" %}</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
+        <script>
+            alert('{{message}}');
+        </script>
+       
+        <!-- Favicon -->
+        <link href="static/images/favicon-32x32.png" rel="icon">
 
-    <div>
-      <strong>{% trans "Menu:" %}</strong>
-      <ul>
-        {% if user.is_authenticated %}
-        <li><a href="{% url 'account_email' %}">{% trans "Change Email" %}</a></li>
-        <li><a href="{% url 'account_logout' %}">{% trans "Sign Out" %}</a></li>
-        {% else %}
-        <li><a href="{% url 'account_login' %}">{% trans "Sign In" %}</a></li>
-        <li><a href="{% url 'account_signup' %}">{% trans "Sign Up" %}</a></li>
-        {% endif %}
-      </ul>
-    </div>
-    {% block content %}
-    {% endblock content %}
-    {% endblock body %}
-    {% block extra_body %}
-    {% endblock extra_body %}
-  </body>
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400|Nunito:600,700" rel="stylesheet"> 
+        
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+        <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <link href="/static/lib/flaticon/font/flaticon.css" rel="stylesheet">
+        <link href="/static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+        <!-- Template Stylesheet -->
+        <link href="/static/css/style.css" rel="stylesheet">
+        
+    </head>
+
+
+    <body>
+      <!-- Nav Bar Start -->
+      <div class="navbar navbar-expand-lg bg-light navbar-light">
+          <div class="container-fluid">
+              <a href="{% url 'index'%}" class="navbar-brand">Indawu <span>Restaurant</span></a>
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+
+              <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                  <div class="navbar-nav ml-auto">
+                      <a href="{% url 'index'%}" class="nav-item nav-link active">Home</a>
+                      <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                      <a href="{% url 'menu'%}" class="nav-item nav-link">Menu</a>
+                      <a href="{% url 'booking'%}" class="nav-item nav-link">Booking</a>
+                      <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                      {% if user.is_authenticated %}
+                      <div class="nav-item dropdown">
+                          <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown"><i class="fas fa-user"></i></a>
+                          <div class="dropdown-menu">
+                          {% if user.is_superuser or user.is_staff %}
+                              <a href="{% url 'admin:index' %}" class="dropdown-item">Dashboard</a>
+                          {% else %}
+                              <a href="{% url 'dashboard' %}" class="dropdown-item">Dashboard</a>
+                          {% endif %}
+                              <a href="{% url 'logout' %}" class="dropdown-item">Logout</a>
+                          </div>
+                      </div>
+                      {% else %}
+                      <a href="{% url 'register' %}" class="nav-link" ><i class="fas fa-user"></i></a>
+                      {% endif %}
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Nav Bar End -->
+      
+      
+
+ <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="footer-contact">
+                                    <h2>Our Address</h2>
+                                    <p><i class="fa fa-map-marker-alt"></i>1 St Stephen Green, Dublin, Ireland</p>
+                                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                                    <p><i class="fa fa-envelope"></i>info@example.com</p>
+                                    <div class="footer-social">
+                                        <a href=""><i class="fab fa-twitter"></i></a>
+                                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                                        <a href=""><i class="fab fa-youtube"></i></a>
+                                        <a href=""><i class="fab fa-instagram"></i></a>
+                                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="footer-newsletter">
+                            <h2>Newsletter</h2>
+                            <p>
+                                Stay in the loop with our latest flavors, fresh drops, and exclusive deals. Sign up and be the first to know what’s cooking — straight to your inbox, no spam, just good vibes.
+                            </p>
+                            <div class="form">
+                                <input class="form-control" placeholder="Email goes here">
+                                <button class="btn custom-btn">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <p>Copyright &copy; <a href="#">Indawu Resturant</a>, All Right Reserved.</p>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="/static/lib/easing/easing.min.js"></script>
+        <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+        <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+        
+        <!-- Contact Javascript File -->
+        <script src="/static/mail/jqBootstrapValidation.min.js"></script>
+        <script src="/static/mail/contact.js"></script>
+
+        <!-- Template Javascript -->
+        <script src="/static/js/main.js"></script>
+    </body>
 </html>
+

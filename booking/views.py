@@ -2,8 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.db.models import Sum
 from django.contrib import messages
 from django.contrib.auth.models import User
-from .models import Customer
-from booking.models import Booking
+from .models import Booking, Customer
 from .forms import CustomerForm, BookingForm, UserForm
 
 

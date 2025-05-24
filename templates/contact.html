@@ -1,9 +1,11 @@
-
 {% load static %}
 
+{% if message %}
 <script>
  alert('{{message}}');
 </script>
+{% endif %}
+
 
 <!DOCTYPE html>
 
@@ -12,7 +14,7 @@
         <meta charset="utf-8">
         <title>Indawu Resturant - Afro fusion Cuisine </title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-      
+       
 
         <!-- Favicon -->
         <link href="static/images/favicon-32x32.png" rel="icon">
@@ -36,23 +38,25 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
-                <a href="{% url 'index'%}" class="navbar-brand">Indawu <span>Restaurant</span></a>
+                <a href="{% url 'index'%}"class="navbar-brand">Indawu <span>Resturant</span></a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="{% url 'index'%}" class="nav-item nav-link ">Home</a>
+                        <a href="{% url 'index'%}" class="nav-item nav-link">Home</a>
                         <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
                         <a href="{% url 'menu'%}" class="nav-item nav-link">Menu</a>
-                        <a href="{% url 'booking'%}" class="nav-item nav-link">Booking</a>
+                        <a href="{% url 'booking' %}" class="nav-item nav-link ">Booking</a>
                         <a href="{% url 'contact' %}" class="nav-item nav-link active">Contact</a>
+
                     </div>
                 </div>
             </div>
         </div>
         <!-- Nav Bar End -->
+        
 
         <!-- Page Header Start -->
         <div class="page-header">
@@ -164,68 +168,93 @@
         </div>
         <!-- Contact End -->
 
-  <!-- Footer Start -->
-  <div class="footer">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="footer-contact">
-                            <h2>Our Address</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>1 St Stephen Green, Dublin, Ireland</p>
-                            <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                            <p><i class="fa fa-envelope"></i>info@example.com</p>
-                            <div class="footer-social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-youtube"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-5">
-                <div class="footer-newsletter">
-                    <h2>Newsletter</h2>
-                    <p>
-                        Stay in the loop with our latest flavors, fresh drops, and exclusive deals. Sign up and be the first to know what’s cooking — straight to your inbox, no spam, just good vibes.
-                    </p>
-                    <div class="form">
-                        <input class="form-control" placeholder="Email goes here">
-                        <button class="btn custom-btn">Submit</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="copyright">
-        <div class="container">
-            <p>Copyright &copy; <a href="#">Indawu Restaurant</a>, All Right Reserved.</p>
-            
-        </div>
-    </div>
+         <!-- Footer End -->
+
+         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+         <!-- JavaScript Libraries -->
+         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+         <script src="/static/lib/easing/easing.min.js"></script>
+         <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+         <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
+         <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+         <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+         
+         <!-- Contact Javascript File -->
+         <script src="/static/mail/jqBootstrapValidation.min.js"></script>
+         <script src="/static/mail/contact.js"></script>
+ 
+         <!-- Template Javascript -->
+         <script src="/static/js/main.js"></script>
+     </body>
+ </html>
+
+ <!-- Footer Start -->
+ <div class="footer">
+   <div class="container">
+       <div class="row">
+           <div class="col-lg-7">
+               <div class="row">
+                   <div class="col-md-6">
+                       <div class="footer-contact">
+                           <h2>Our Address</h2>
+                           <p><i class="fa fa-map-marker-alt"></i>1 St Stephen Green, Dublin, Ireland</p>
+                           <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                           <p><i class="fa fa-envelope"></i>info@example.com</p>
+                           <div class="footer-social">
+                               <a href=""><i class="fab fa-twitter"></i></a>
+                               <a href=""><i class="fab fa-facebook-f"></i></a>
+                               <a href=""><i class="fab fa-youtube"></i></a>
+                               <a href=""><i class="fab fa-instagram"></i></a>
+                               <a href=""><i class="fab fa-linkedin-in"></i></a>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-lg-5">
+               <div class="footer-newsletter">
+                   <h2>Newsletter</h2>
+                   <p>
+                       Stay in the loop with our latest flavors, fresh drops, and exclusive deals. Sign up and be the first to know what’s cooking — straight to your inbox, no spam, just good vibes.
+                   </p>
+                   <div class="form">
+                       <input class="form-control" placeholder="Email goes here">
+                       <button class="btn custom-btn">Submit</button>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="copyright">
+       <div class="container">
+           <p>Copyright &copy; <a href="#">Indawe Resturant</a>, All Right Reserved.</p>
+       
+       </div>
+   </div>
 </div>
 <!-- Footer End -->
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-<script src="/static/lib/easing/easing.min.js"></script>
-<script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="/static/lib/tempusdominus/js/moment.min.js"></script>
-<script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
-<script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+ <!-- JavaScript Libraries -->
+ <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+ <script src="/static/lib/easing/easing.min.js"></script>
+ <script src="/static/lib/owlcarousel/owl.carousel.min.js"></script>
+ <script src="/static/lib/tempusdominus/js/moment.min.js"></script>
+ <script src="/static/lib/tempusdominus/js/moment-timezone.min.js"></script>
+ <script src="/static/lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+ 
+ <!-- Contact Javascript File -->
+ <script src="/static/mail/jqBootstrapValidation.min.js"></script>
+ <script src="/static/mail/contact.js"></script>
 
-<!-- Contact Javascript File -->
-<script src="/static/mail/jqBootstrapValidation.min.js"></script>
-<script src="/static/mail/contact.js"></script>
-
-<!-- Template Javascript -->
-<script src="/static/js/main.js"></script>
+ <!-- Template Javascript -->
+ <script src="/static/js/main.js"></script>
 </body>
 </html>
+
+
+  

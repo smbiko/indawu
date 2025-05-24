@@ -6,10 +6,7 @@
         <title>Indawu Resturant - Afro fusion Cuisine </title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-        <script>
-            alert('{{message}}');
-        </script>
-       
+        
         <!-- Favicon -->
         <link href="static/images/favicon-32x32.png" rel="icon">
 
@@ -40,10 +37,37 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
                         <a href="{% url 'index'%}" class="nav-item nav-link active">Home</a>
-                        <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
+                        <a href="{% url 'about'%}" class="nav-item nav-link">About</a>
                         <a href="{% url 'menu'%}" class="nav-item nav-link">Menu</a>
-                        <a href="{% url 'booking'%}" class="nav-item nav-link">Booking</a>
-                        <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
+                        
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'booking' %}"
+                                aria-label="Navigates to the booking page">Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}"
+                                aria-label="Navigates to the logout page">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'display_booking' %}"
+                                aria-label="Navigates to the profile page">
+                                <span>Your Profile</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}"
+                                aria-label="Navigates to the register page">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}"
+                                aria-label="Navigates to the sign in page">Sign In</a>
+                        </li>
+                        {% endif %}
+                        </ul>
+                        <a href="{% url 'contact'%}" class="nav-item nav-link">Contact</a>
+                        
                     </div>
                 </div>
             </div>
@@ -66,7 +90,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn custom-btn" href="{% url 'menu'%}">View Menu</a>
-                                <a class="btn custom-btn" href="{% url 'booking'%}">Book Table</a>
+                                <a class="btn custom-btn" href="{% url 'booking' %}">Book Table</a>
                             </div>
                         </div>
                     </div>
@@ -81,7 +105,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn custom-btn" href="{% url 'menu'%}">View Menu</a>
-                                <a class="btn custom-btn" href="{% url 'booking'%}">Book Table</a>
+                                <a class="btn custom-btn" href="{% url 'booking' %}">Book Table</a>
                             </div>
                         </div>
                     </div>
@@ -96,7 +120,7 @@
                             </p>
                             <div class="carousel-btn">
                                 <a class="btn custom-btn" href="{% url 'menu'%}">View Menu</a>
-                                <a class="btn custom-btn" href="{% url 'booking'%}">Book Table</a>
+                                <a class="btn custom-btn" href="{% url 'booking' %}">Book Table</a>
                             </div>
                         </div>
                     </div>
@@ -106,468 +130,7 @@
         <!-- Carousel End -->
         
         
-        <!-- Booking Start -->
-        <div class="booking">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <div class="booking-content">
-                            <div class="section-header">
-                                <p>Book A Table</p>
-                                <h2>Reserve Your Table with Ease</h2>
-                            </div>
-                            <div class="about-text">
-                                <p>
-                                    Planning a special evening or just craving a great meal out? At Indawu Restaurant, we make it simple to secure your spot. Whether it’s a cozy dinner for two, a family gathering, or a celebration with friends, booking a table ensures you’ll be seated and served without the wait.
-                                    
-                                </p>
-                                <p>
-                                    Our easy-to-use reservation system lets you choose the perfect time, date, and party size—all in just a few clicks. Prefer to speak with someone? Give us a call, and our team will be happy to assist. Your table is waiting—we look forward to welcoming you soon.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="booking-form">
-                            <form>
-                                <div class="control-group">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Name" required="required" />
-                                        <div class="input-group-append">
-                                            <div class="input-group-text"><i class="far fa-user"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="input-group">
-                                        <input type="email" class="form-control" placeholder="Email" required="required" />
-                                        <div class="input-group-append">
-                                            <div class="input-group-text"><i class="far fa-envelope"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="Mobile" required="required" />
-                                        <div class="input-group-append">
-                                            <div class="input-group-text"><i class="fa fa-mobile-alt"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="input-group date" id="date" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Date" data-target="#date" data-toggle="datetimepicker"/>
-                                        <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="input-group time" id="time" data-target-input="nearest">
-                                        <input type="text" class="form-control datetimepicker-input" placeholder="Time" data-target="#time" data-toggle="datetimepicker"/>
-                                        <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
-                                            <div class="input-group-text"><i class="far fa-clock"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="control-group">
-                                    <div class="input-group">
-                                        <select class="custom-select form-control">
-                                            <option selected>Guest</option>
-                                            <option value="1">1 Guest</option>
-                                            <option value="2">2 Guest</option>
-                                            <option value="3">3 Guest</option>
-                                            <option value="4">4 Guest</option>
-                                            <option value="5">5 Guest</option>
-                                            <option value="6">6 Guest</option>
-                                            <option value="7">7 Guest</option>
-                                            <option value="8">8 Guest</option>
-                                            <option value="9">9 Guest</option>
-                                            <option value="10">10 Guest</option>
-                                        </select>
-                                        <div class="input-group-append">
-                                            <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div>
-                                    <button class="btn custom-btn" type="submit">Book Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Booking End -->
         
-
-        <!-- About Start -->
-        <div class="about">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-6">
-                        <div class="about-img">
-                            <img src="/static/img/about.jpg" alt="Image">
-                            <button type="button" class="btn-play" data-toggle="modal" data-src="https://www.youtube.com/watch?v=HS24PywYlxg" data-target="#videoModal">
-                                <span></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="about-content">
-                            <div class="section-header">
-                                <p>About Us</p>
-                                <h2>Cooking Since 2024</h2>
-                            </div>
-                            <div class="about-text">
-                                <p>
-                                    At Indawu Resturant , we believe food is more than just a meal—it’s a celebration. Since 2024, we’ve been serving up a blend of tradition, creativity, and local ingredients. 
-                                <p>
-                                    Whether it’s a romantic dinner, a family gathering, or just a casual lunch, every visit to Indawu Resturant is designed to feel like coming home.
-                                </p>
-                                <a class="btn custom-btn" href="{% url 'booking'%}">Book A Table</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- About End -->
-        
-        
-        <!-- Video Modal Start-->
-        <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>        
-                        <!-- 16:9 aspect ratio -->
-                        <div class="embed-responsive embed-responsive-16by9">
-                            <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> 
-        <!-- Video Modal End -->
-        
-        
-       
-    
-        <!-- Food Start -->
-        <div class="food">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <i class="flaticon-burger"></i>
-                            <h2>Burgers</h2>
-                            <p>
-                                Sink your teeth into bold flavors and juicy perfection. Our burgers are stacked high with premium ingredients, house-made sauces, and that crave-worthy chargrilled finish. Every bite hits different.
-                            </p>
-                            <a href="">View Menu</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <i class="flaticon-snack"></i>
-                            <h2>Snacks</h2>
-                            <p>
-                                Small bites, big flavor. From crispy fries to loaded sides, our snacks are made to satisfy those in-between cravings or fuel up your feast. Fast, fun, and full of attitude.
-                            </p>
-                            <a href="">View Menu</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="food-item">
-                            <i class="flaticon-cocktail"></i>
-                            <h2>Beverages</h2>
-                            <p>
-                                Cool down or turn up — our drinks menu has your back. Sip on refreshing sodas, mocktails, and feel-good blends that bring the vibe to every meal.
-                            </p>
-                            <a href="">View Menu</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Food End -->
-        
-        
-        <!-- Menu Start -->
-        <div class="menu">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Food Menu</p>
-                    <h2>Delicious Food Menu</h2>
-                </div>
-                <div class="menu-tab">
-                    <ul class="nav nav-pills justify-content-center">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-toggle="pill" href="#burgers">Burgers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#snacks">Snacks</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="pill" href="#beverages">Beverages</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="burgers" class="container tab-pane active">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Mini cheese Burger</span> <strong>€9.00</strong></h3>
-                                            <p>Small in size, big on flavor. A juicy beef patty topped with melted cheese and classic fixings — the perfect bite-sized crave crusher.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Double size burger</span> <strong>€11.00</strong></h3>
-                                            <p>Twice the meat, double the pleasure. This beast is stacked high with two patties, melted cheese, and all the trimmings. Bring your appetite.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Bacon, EGG and Cheese</span> <strong>€13.00</strong></h3>
-                                            <p>Breakfast, but make it a burger. Crispy bacon, a fried egg, gooey cheese, and a juicy patty all in one bun. It hits every time.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Pulled porx Burger</span> <strong>€18.00</strong></h3>
-                                            <p>Slow-cooked, tender pulled pork piled high and drenched in smoky BBQ sauce. Messy, meaty, and ridiculously satisfying.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-burger.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Fried chicken Burger</span> <strong>€22.00</strong></h3>
-                                            <p>Crispy on the outside, juicy on the inside. Our golden fried chicken burger is topped with slaw and spicy mayo for that perfect crunch and kick.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="/static/img/menu-burger-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="snacks" class="container tab-pane fade">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Corn Tikki - Spicy fried Aloo</span> <strong>€15.00</strong></h3>
-                                            <p>Golden and crisp on the outside, soft and spicy inside. These corn and potato patties pack a flavorful punch with every bite.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Bread besan Toast</span> <strong>€35.00</strong></h3>
-                                            <p>A street-style classic! Fresh bread dipped in a savory gram flour batter and pan-fried to perfection — crunchy, comforting, and totally addictive.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Healthy soya nugget snacks</span> <strong>€20.00</strong></h3>
-                                            <p>High-protein, full-flavor. These guilt-free nuggets are seasoned, crispy, and perfect for clean snacking without compromise.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-snack.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Tandoori Soya Chunks</span> <strong>€30.00</strong></h3>
-                                            <p>Marinated in bold tandoori spices and grilled to smoky perfection. These plant-powered bites are fiery, flavorful, and totally unforgettable.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="/static/img/menu-snack-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                        <div id="beverages" class="container tab-pane fade">
-                            <div class="row">
-                                <div class="col-lg-7 col-md-12">
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Single Cup Brew</span> <strong>€7.00</strong></h3>
-                                            <p>Brewed fresh, one cup at a time. Smooth, bold, and crafted to bring out the best in every bean. Simplicity at its finest.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Caffe Americano</span> <strong>€9.00</strong></h3>
-                                            <p>Clean, strong, and full of character. A classic espresso with hot water — perfect for coffee lovers who like it bold and unfiltered.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Caramel Macchiato</span> <strong>€15.00</strong></h3>
-                                            <p>Rich espresso meets velvety milk and buttery caramel drizzle. Sweet, smooth, and seriously indulgent.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>€8.00</strong></h3>
-                                            <p>No frills, just great coffee. Strong, aromatic, and satisfying — your everyday essential, done right.</p>
-                                        </div>
-                                    </div>
-                                    <div class="menu-item">
-                                        <div class="menu-img">
-                                            <img src="/static/img/menu-beverage.jpg" alt="Image">
-                                        </div>
-                                        <div class="menu-text">
-                                            <h3><span>Standard black coffee</span> <strong>€12.00</strong></h3>
-                                            <p>Double the depth, double the energy. Our large black coffee delivers that bold caffeine kick to keep you powered through the day.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 d-none d-lg-block">
-                                    <img src="/static/img/menu-beverage-img.jpg" alt="Image">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Menu End -->
-        
-          
-        <!-- Contact Start -->
-        <div class="contact">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Contact Us</p>
-                    <h2>Contact For Any Query</h2>
-                </div>
-                <div class="row align-items-center contact-information">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="contact-info">
-                            <div class="contact-icon">
-                                <i class="fa fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Address</h3>
-                                <p>1 St Stephen Green, Dublin, Ireland</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="contact-info">
-                            <div class="contact-icon">
-                                <i class="fa fa-phone-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Call Us</h3>
-                                <p>+012 345 6789</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="contact-info">
-                            <div class="contact-icon">
-                                <i class="fa fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Email Us</h3>
-                                <p>info@example.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="contact-info">
-                            <div class="contact-icon">
-                                <i class="fa fa-share"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h3>Follow Us</h3>
-                                <div class="contact-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-youtube"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row contact-form">
-                    <div class="col-md-6">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1600663868074!5m2!1sen!2sbd" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
-                    </div>
-                    <div class="col-md-6">
-                        <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
-                            <div class="control-group">
-                                <input type="text" class="form-control" id="name" placeholder="Your Name" required="required" data-validation-required-message="Please enter your name" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <input type="email" class="form-control" id="email" placeholder="Your Email" required="required" data-validation-required-message="Please enter your email" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <input type="text" class="form-control" id="subject" placeholder="Subject" required="required" data-validation-required-message="Please enter a subject" />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control" id="message" placeholder="Message" required="required" data-validation-required-message="Please enter your message"></textarea>
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div>
-                                <button class="btn custom-btn" type="submit" id="sendMessageButton">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Contact End -->
 
 
         <!-- Footer Start -->
@@ -619,6 +182,10 @@
 
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 
+
+       
+
+        
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
