@@ -120,8 +120,8 @@ Booking
 ## Future features
 
 1. Adding a menu and gallary page
-2. Adding More interaction by implementing jS functionality
-3. Improving the booking steps by adding Pictures of the setting arrangement
+2. Meal orders  for delivery
+3. paying online 
 4. Automatic email notifications for admin when customers make bookings and notifications to customers when booking status is updated
 5. A forgotten password link
 
@@ -191,59 +191,16 @@ Edit profile information|Edited username and clicked update user|The user can ed
 Delete profile|Clicked delete account and clicked delete account again on the modal, tried to sign in using the deleted account details|When the delete account button is clicked a modal will pop up to the user to confirm this action, once delete account is clicked the user will be redirected to the logged out home page with a warning message|Pass
 Delete bookings|Clicked delete on a booking|Once the user clicks delete next to a booking the booking will be removed and a warning message is displayed to the user|Pass
 
-### Footer
 
-**Test**|**Action**|**Expected**|**Result**
------|-----|-----|:-----:
-Instagram link clickable|Clicked the Instagram icon|When clicked the Instagram icon will open a new window to Instagram|Pass
-Facebook link clickable|Clicked the Facebook icon|When clicked the Facebook icon will open a new window to Facebook|Pass
-Footer responsive|Resized the browser and checked the footer at different resolutions|Footer will fit the samll screen size|Pass
 
-## Validator Testing
-
-HTML
-
-![html-valid](static/images/readme/contact-final-deployed.png)
-
-CSS
-
-![css-valid](static/images/readme/css-valid.png)
-
-Lighthouse Testing
-
-![LH-valid](static/images/readme/LH-valid.png)
-
-CI Python Linter
-
-admin.py
-
-![admin](static/images/readme/admin-booking-management.png)
-
-forms.py
-
-![forms](static/images/readme/form-booking.png)
-
-model.py
-
-![model](static/images/readme/mod-booking.png)
-
-urls.py
-
-![urls](static/images/readme/url-booking.png)
-
-views.py
-
-![views](static/images/readme/view-booking.png)
 
 ### Bugs
 
 **Bug**|**Solution**|**Status**
 -----|-----|:-----:
-Contact Us not validating correctly|fixed by setting the field to required|fixed
+Contact Us not validating correctly|had to add post on the page
 The deployed project on Heroku not displaying the Bootstrap/CSS styling as implemented in the code|Connect style.css by correcting typo of 'STATIC_DIRS' to 'STATICFILES_DIRS' in settings.py|Fixed
 Auto date and time populating is not working on the booking form|using wiedget and jQuery it populates|Fixed
-The background image was not visible on the deployed page|Seeting the images to load from static links rather than external sources|Fixed
-Profile page was not correctely rendered and visible|adding a background color and setting the detail corerctely in a table|fixed
 
 ## Deployment
 
@@ -278,10 +235,10 @@ Profile page was not correctely rendered and visible|adding a background color a
 
 ### Code
 
-* Credit for Daniel Conner for letting and providing basic booking model and form codes from his project 
+* Credit for Daniel Conner providing basic booking model and form codes from his project and Amandeep Kaurfor for walkingthrough the foodzone bookstrap django project 
 
 * Credit for Code Walkthrough Projects
-
+  
 ## Acknowledgements
 
 I would like to thank my mentor and the Code Institute team and the Slack community.
