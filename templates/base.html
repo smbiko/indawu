@@ -22,6 +22,8 @@
         <!-- Template Stylesheet -->
         <link href="/static/css/style.css" rel="stylesheet">
         
+        {% include 'includes/header.html' %}
+
         {% block head %}{% endblock %}
       
     </head>
@@ -41,7 +43,31 @@
                         <a href="{% url 'index'%}" class="nav-item nav-link">Home</a>
                         <a href="{% url 'about' %}" class="nav-item nav-link">About</a>
                         <a href="{% url 'menu'%}" class="nav-item nav-link">Menu</a>
-                        <a href="{% url 'booking'%}" class="nav-item nav-link active">Booking</a>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'booking' %}"
+                                aria-label="Navigates to the booking page">Booking</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}"
+                                aria-label="Navigates to the logout page">Logout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'display_booking' %}"
+                                aria-label="Navigates to the profile page">
+                                <span>Your Profile</span>
+                            </a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}"
+                                aria-label="Navigates to the register page">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}"
+                                aria-label="Navigates to the sign in page">Sign In</a>
+                        </li>
+                        {% endif %}
                         <a href="{% url 'contact' %}" class="nav-item nav-link">Contact</a>
 
                     </div>

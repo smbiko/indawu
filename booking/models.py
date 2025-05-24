@@ -12,7 +12,7 @@ class Customer(models.Model):
     full_name = models.CharField(max_length=200, blank=True)
     email = models.EmailField(max_length=200, blank=True)
     phone_number = models.CharField(max_length=20)
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='booking_customers')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='booking_customers', null=True, blank=True )
 
 
     def __str__(self):

@@ -4,6 +4,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from .models import Booking, Customer
 from .forms import CustomerForm, BookingForm, UserForm
+from django.contrib.auth.decorators import login_required
 
 
 def limit_no_persons(date, time, accompanying):
@@ -51,30 +52,35 @@ def check_availability(date, time):
 
 
 def customer_booking(request):
-    
     unavailable_booking_dates = []
+
     if request.method == 'POST':
         customer_form = CustomerForm(request.POST, prefix='customer')
         booking_form = BookingForm(request.POST, prefix='booking')
+
         if customer_form.is_valid() and booking_form.is_valid():
             customer = customer_form.save(commit=False)
-            customer.user = request.user
+
+            # Only assign user if authenticated
+            if request.user.is_authenticated:
+                customer.user = request.user
+
             customer.save()
+
             booking = booking_form.save(commit=False)
             booking.customer = customer
-            if check_availability(booking.booking_date,
-                                  booking.booking_time) and limit_no_persons(
-                                    booking.booking_date, booking.booking_time,
-                                    booking.number_accompanying):
+
+            if check_availability(booking.booking_date, booking.booking_time) and limit_no_persons(
+                booking.booking_date, booking.booking_time, booking.number_accompanying
+            ):
                 booking.save()
-                customer_form = CustomerForm()
-                booking_form = BookingForm()
-                messages.add_message(request, messages.SUCCESS,
-                                     'Your booking request is accepted!')
+                customer_form = CustomerForm(prefix='customer')
+                booking_form = BookingForm(prefix='booking')
+                messages.add_message(request, messages.SUCCESS, 'Your booking request is accepted!')
                 return redirect('display_booking')
             else:
-                messages.add_message(request, messages.ERROR,
-                                     'Please look for another Date and Time!')
+                messages.add_message(request, messages.ERROR, 'Please look for another Date and Time!')
+
     else:
         customer_form = CustomerForm(prefix='customer')
         booking_form = BookingForm(prefix='booking')
@@ -88,7 +94,7 @@ def customer_booking(request):
 
     return render(request, 'booking.html', context)
 
-
+@login_required
 def display_booking(request):
     """
     came from: https://www.w3schools.com/django/django_queryset_filter.php
